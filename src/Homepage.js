@@ -6,12 +6,12 @@ import {
     Typography,
     Grid,
 } from "@material-ui/core";
-import useStyles from "./styles";
+import useStyles from "./HomepageStyles";
 import mainAirpodsImg from "./images/airpods-main.jpg";
 import chargeImg from "./images/charge.jpg";
 import siriImg from "./images/siri.jpg";
 import wirelessImg from "./images/wireless.jpg";
-import { Redirect, Link } from "react-router-dom";
+import { Link } from "react-router-dom";
 
 function Homepage() {
     const classes = useStyles();
@@ -24,8 +24,6 @@ function Homepage() {
         <>
             <CssBaseline />
             <Container className={classes.pageContainer} maxWidth="xl">
-                <Link to="/feature/0">feature 0</Link>
-
                 <Typography
                     variant="h1"
                     gutterBottom
