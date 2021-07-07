@@ -1,7 +1,9 @@
 import React from "react";
 import { useParams } from "react-router-dom";
-import { Container, Paper, CssBaseline, Typography } from "@material-ui/core";
+import { Container, CssBaseline, Typography } from "@material-ui/core";
 import useStyles from "./featureStyles";
+import Userfront from "@userfront/react";
+import { Redirect } from "react-router";
 
 const features = [
     {
@@ -28,6 +30,9 @@ const FeaturePage = () => {
     let { id } = useParams();
     const feature = features.filter((value) => value.id === parseInt(id))[0];
     const classes = useStyles();
+    if (!Userfront.accessToken()) {
+        return <Redirect to="/landing" />;
+    }
     return (
         <>
             <CssBaseline />

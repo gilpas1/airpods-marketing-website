@@ -1,5 +1,6 @@
 import { makeStyles } from "@material-ui/core";
 import landingImage from "./images/landing-airpods.jpg";
+import { pink } from "@material-ui/core/colors";
 
 const useStyles = makeStyles((theme) => ({
     root: {
@@ -14,6 +15,9 @@ const useStyles = makeStyles((theme) => ({
                 : theme.palette.grey[900],
         backgroundSize: "cover",
         backgroundPosition: "center",
+        display: "flex",
+        flexDirection: "column",
+        justifyContent: "space-between",
     },
     paper: {
         margin: theme.spacing(8, 4),
@@ -22,7 +26,7 @@ const useStyles = makeStyles((theme) => ({
         alignItems: "center",
     },
     avatar: {
-        margin: theme.spacing(1),
+        margin: theme.spacing(4, 0, 1, 0),
         backgroundColor: theme.palette.secondary.main,
     },
     form: {

@@ -11,7 +11,8 @@ import mainAirpodsImg from "./images/airpods-main.jpg";
 import chargeImg from "./images/charge.jpg";
 import siriImg from "./images/siri.jpg";
 import wirelessImg from "./images/wireless.jpg";
-import { Link } from "react-router-dom";
+import { Link, Redirect } from "react-router-dom";
+import Userfront from "@userfront/react";
 
 function Homepage() {
     const classes = useStyles();
@@ -20,6 +21,9 @@ function Homepage() {
         { key: 2, image: siriImg, text: "Your right‑hand Siri" },
         { key: 3, image: wirelessImg, text: "Wireless to the fullest" },
     ];
+    if (!Userfront.accessToken()) {
+        return <Redirect to="/landing" />;
+    }
     return (
         <>
             <CssBaseline />
@@ -97,6 +101,14 @@ function Homepage() {
                 <div className={classes.contactDiv}>
                     <Button variant="contained" color="default" size="large">
                         Contact Us
+                    </Button>
+                    <Button
+                        variant="contained"
+                        color="secondary"
+                        size="large"
+                        onClick={Userfront.logout}
+                    >
+                        Logout
                     </Button>
                 </div>
             </Container>
